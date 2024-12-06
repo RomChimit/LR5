@@ -9,17 +9,17 @@ using namespace std;
 class Laser {
 private:
     bool isOn;          // Состояние печи (включена/выключена)
-    int deep;          // Время приготовления в секундах
+    int time;          // Время приготовления в секундах
     int powerLevel;    // Уровень мощности (от 1 до 10)
     string material;   // Тип пищи, которая готовится
 
 public:
     // Конструктор по умолчанию
-    Microwave() : isOn(false), deep(1), powerLevel(1), material("Не выбрано") {}
+    Laser() : isOn(false), time(0), powerLevel(1), material("Не выбрано") {}
 
     // Конструктор с параметрами
-    Microwave(bool state, int d, int level, string type)
-        : isOn(state), deep(d), powerLevel(level), material(type) {}
+    Laser(bool state, int d, int level, string type)
+        : isOn(state), time(d), powerLevel(level), material(type) {}
 
     // Метод для включения 
     void turnOn() {
@@ -34,10 +34,10 @@ public:
     }
     
     // Метод для установки глубины
-    void setDeep(int deep) {
+    void setTime(int seconds) {
         if (isOn) {
-            time = deep;
-            cout << "Глубина гравировки установлена на " << deep << " десятых миллиметра.\n";
+            time = seconds;
+            cout << "Глубина гравировки установлена на " << time << " десятых миллиметра.\n";
         } else {
             cout << "Лазерный принтер выключен. Включите его, чтобы установить глубину гравировки.\n";
         }
@@ -70,7 +70,7 @@ public:
     // Метод для отображения текущего состояния принтера
     void displayState() const {
         cout << "Состояние Лазерного принтера: " << (isOn ? "Включен" : "Выключен")
-             << ", Глубина: " << deep 
+             << ", Глубина: " << time 
              << " десятых миллиметра, Уровень мощности: " << powerLevel 
              << ", Материал: " << material << "\n";
     }

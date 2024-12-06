@@ -6,7 +6,7 @@ using namespace std;
 int main() {
     Laser laser; // Создание объекта
     int choice;
-    int deepValue, powerValue;
+    int timeValue, powerValue;
     string materialValue;
 
     do {
@@ -23,28 +23,28 @@ int main() {
 
         switch (choice) {
             case 1:
-                microwave.displayState();
+                laser.displayState();
                 break;
             case 2:
-                microwave.turnOn();
+                laser.turnOn();
                 break;
             case 3:
-                microwave.turnOff();
+                laser.turnOff();
                 break;
             case 4:
                 cout << "Введите глубину гравировки в десятых миллиметра: ";
-                cin >> deepValue;
-                microwave.setDeep(deepValue);
+                cin >> timeValue;
+                laser.setTime(timeValue);
                 break;
             case 5:
                 cout << "Введите уровень мощности (1-10): ";
                 cin >> powerValue;
-                microwave.setPowerLevel(powerValue);
+                laser.setPowerLevel(powerValue);
                 break;
             case 6:
 		cout << "Введите материал (например, фанера, латунь): ";
                 cin >> materialValue;
-                microwave.setMaterial(materialValue);
+                laser.setMaterial(materialValue);
                 break;
             case 0:
                 cout << "Выход...\n";
